@@ -1,16 +1,15 @@
-import React, {Component} from 'react';
-import SolarSystem from '../views/SolarSystem';
+var React = require('react');
+var createReactClass = require('create-react-class');
 
-class SolarSystemContainer extends Component {
+var SolarSystem = require('../views/SolarSystem');
 
-  constructor (props) {
-    super(props);
-    this.state = {
+var SolarSystemContainer = createReactClass({
+  getInitialState: function(){
+    return {
       planets: this.props.planets
     }
-  }
-
-  render () {
+  },
+  render: function() {
     return (
       <div>
         <h1>The Planets of the Solar System</h1>
@@ -20,6 +19,6 @@ class SolarSystemContainer extends Component {
       </div>
     )
   }
-}
+});
 
 export default SolarSystemContainer;

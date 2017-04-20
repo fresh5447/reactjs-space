@@ -1,18 +1,17 @@
-import React, {Component} from 'react';
-import Planet from '../views/Planet';
+var React = require('react');
+var createReactClass = require('create-react-class');
 
-class PlanetContainer extends Component {
+var Planet = require('../views/Planet');
 
-  constructor (props) {
-    super(props);
+var PlanetContainer = createReactClass({
+  getInitialState: function(){
     var planet = this.props.planets[this.props.params.planetIndex];
-    this.state = {
+    return {
       planet: planet,
       stardate: this.props.stardate
     }
-  }
-
-  render () {
+  },
+  render: function() {
     return (
       <div>
         <h1>The Planets of the Solar System</h1>
@@ -22,6 +21,6 @@ class PlanetContainer extends Component {
       </div>
     )
   }
-}
+});
 
 export default PlanetContainer;

@@ -1,25 +1,24 @@
-import React, {Component} from 'react';
-import Home from '../views/Home';
+var React = require('react');
+var createReactClass = require('create-react-class');
 
-class HomeContainer extends Component {
+var Home = require('../views/Home');
 
-  constructor (props) {
-    super(props);
-    this.state = {
+var HomeContainer = createReactClass({
+  getInitialState: function(){
+    return {
       homePlanet: "Earth"
     }
-  }
-
-  render () {
+  },
+  render: function() {
     return (
       <div>
         <h1>Welcome to Space</h1>
         <div>
-          <Home homePlanet={this.state.homePlanet} />
+          { this.state.homePlanet ?  <Home homePlanet={this.state.homePlanet} /> : null }
         </div>
       </div>
     )
   }
-}
+});
 
 export default HomeContainer;

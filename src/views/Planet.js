@@ -1,7 +1,7 @@
 import React from 'react';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 
-const Planet = (props) => {
+function Planet(props) {
   return (
     <div>
       <h2>Stardate: {props.stardate.toString()}</h2>

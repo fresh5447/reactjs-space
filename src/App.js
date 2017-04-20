@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
-import {Link} from 'react-router';
-import './App.css';
+var React = require('react');
+var createReactClass = require('create-react-class');
+var Link = require('react-router').Link;
+require('./App.css')
 
-class App extends Component {
-
-  constructor (props) {
-    super(props);
-    this.state = {
+var App = createReactClass({
+  getInitialState: function(){
+    return {
       stardate: new Date(),
       planets: [
         {
@@ -56,9 +55,8 @@ class App extends Component {
         }
       ]
     }
-  }
-
-  render() {
+  },
+  render: function() {
     return (
       <div className="container">
         <ul className='nav nav-tabs'>
@@ -71,8 +69,8 @@ class App extends Component {
         </ul>
         {React.cloneElement(this.props.children, {stardate: this.state.stardate, planets: this.state.planets})}
       </div>
-    );
+    )
   }
-}
+});
 
 export default App;
